@@ -19,23 +19,33 @@ def clean_string(s):
 
 
 def extract_date(soup):
-    return clean_string(soup.find("div", {'class': 'zh-c-concert__left'}).find("div", {'class': 'zh-h2'}).get_text())
+    object = soup.find("div", {'class': 'zh-c-concert__left'}).find("div", {'class': 'zh-h2'})
+    if object:
+        return clean_string(object.get_text())
 
 
 def extract_title(soup):
-    return clean_string(soup.find("h1", {'class': 'zh-c-concert__title'}).get_text())
+    object = soup.find("h1", {'class': 'zh-c-concert__title'})
+    if object:
+        return clean_string(object.get_text())
 
 
 def extract_description(soup):
-    return clean_string(soup.find("div", {'class': 'zh-c-concert__content'}).get_text())
+    object = soup.find("div", {'class': 'zh-c-concert__content'})
+    if object:
+        return clean_string(object.get_text())
 
 
 def extract_time(soup):
-    return clean_string(soup.find("li", {'class': 'zh-meta__item zh-meta-item zh-meta-item_time'}).get_text())
+    object = soup.find("li", {'class': 'zh-meta__item zh-meta-item zh-meta-item_time'})
+    if object:
+        return clean_string(object.get_text())
 
 
 def extract_hall(soup):
-    return clean_string(soup.find("li", {'class': 'zh-meta__item zh-meta-item zh-meta-item_hall'}).get_text())
+    object = soup.find("li", {'class': 'zh-meta__item zh-meta-item zh-meta-item_hall'})
+    if object:
+        return clean_string(object.get_text())
 
 
 def extract_program(soup):
@@ -60,7 +70,7 @@ def extract_event_info(page):
     description = {
         'url': page,
         'название': extract_title(soup),
-        'опсиание': extract_description(soup),
+        'опиcание': extract_description(soup),
         'дата': extract_date(soup),
         'время': extract_time(soup),
         'зал': extract_hall(soup),
