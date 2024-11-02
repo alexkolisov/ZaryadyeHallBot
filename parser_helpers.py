@@ -19,7 +19,9 @@ def clean_string(s):
 
 
 def extract_date(soup):
-    object = soup.find("div", {'class': 'zh-c-concert__left'}).find("div", {'class': 'zh-h2'})
+    object = soup.find("div", {'class': 'zh-c-concert__left'})
+    if object:
+        object = object.find("div", {'class': 'zh-h2'})
     if object:
         return clean_string(object.get_text())
 
