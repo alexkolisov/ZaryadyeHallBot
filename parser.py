@@ -5,8 +5,7 @@ from parser_helpers import *
 import re
 import time
 from zaryadye_bot import bot, get_users
-
-MAX_PAGES = 1
+from config import *
 
 def parse_events(max_pages=None):
     print("Start parsing")

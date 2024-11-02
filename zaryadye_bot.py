@@ -45,4 +45,8 @@ def remove_user(message):
         bot.send_message(user, 'вы уже отписаны от рассылки')
 
 if __name__ == "__main__":
-    bot.polling(none_stop=True)
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except Exception as e:
+            print(e)
